@@ -17,7 +17,7 @@ document.getElementById('button-calculate').addEventListener('click', function (
     const getFood = setValue('Food');
     const getRent = setValue('Rent');
     const getCloth = setValue('Cloth');
-    
+
 
     const totalExpenseElement = document.getElementById('get-total-expense');
     const totalBalanceElement = document.getElementById('get-total-savings');
@@ -41,8 +41,12 @@ document.getElementById('button-calculate').addEventListener('click', function (
     }
 })
 
-// document.getElementById('button-saving').addEventListener('click', function() {
+// document.getElementById('button-saving').addEventListener('click', function () {
 //     const getSavings = setValue('Savings');
+
+//     const totalBalanceElement = document.getElementById('get-total-savings');
+//     const totalBalanceString = totalBalanceElement.innerText;
+//     const totalBalance = parseFloat(totalBalanceString);
 
 //     const savingAmount = document.getElementById('saving-amount');
 //     const remainBalance = document.getElementById('remain-balance');
@@ -51,7 +55,10 @@ document.getElementById('button-calculate').addEventListener('click', function (
 //         alert('Please Enter Your Saving Amount In Number');
 //         savingAmount.innerText = 0;
 //         remainBalance.innerText = 0;
-//     }
+//     } else {
+//         const totalSavings = totalBalance - (getSavings * 100);
+//         const totalRemain = totalBalance - totalSavings;
 
+//     }
 
 // })
