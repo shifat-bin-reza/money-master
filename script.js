@@ -26,7 +26,6 @@ document.getElementById('button-calculate').addEventListener('click', function (
         totalExpenseElement.innerText = 0;
         totalBalanceElement.innerText = 0;
     } else {
-        const totalExpense = getFood + getRent + getCloth;
         totalExpenseElement.innerText = totalExpense;
 
 
