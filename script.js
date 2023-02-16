@@ -3,10 +3,11 @@ function setValue(getId) {
     const getInputIdString = getInputId.value;
 
     if (getInputIdString >= '0' && getInputIdString <= '9') {
+        getInputId.style.borderColor = "grey";
         const getInputIdNumber = parseFloat(getInputIdString);
-        getInputId.value = "";
         return getInputIdNumber;
     } else {
+        getInputId.style.borderColor = "red";
         getInputId.value = "";
         return -1;
     }
@@ -26,6 +27,7 @@ document.getElementById('button-calculate').addEventListener('click', function (
         totalExpenseElement.innerText = 0;
         totalBalanceElement.innerText = 0;
     } else {
+        const totalExpense = getFood + getCloth + getRent;
         totalExpenseElement.innerText = totalExpense;
 
 
