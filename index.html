@@ -1,12 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- tailwind css  -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Money Master</title>
 </head>
+
 <body>
-    
+    <section class="container">
+        <h1 class="title">Money Master</h1>
+        <div class="body-container grid gap-4 lg:grid-cols-2">
+            <div class="body-left-container">
+                <img src="./images/money.png" alt="">
+            </div>
+            <div class="body-right-container p-1 flex flex-col justify-center items-center">
+                <h2 class="title-income">Income</h2>
+                <div class="calculation-container">
+                    <table>
+                        <tr class="label-income">
+                            <th><label for="income">Income </label></th>
+                            <td><input type="text" id="Income" class="p-1"></td>
+                        </tr>
+                        <th colspan="2">
+                            <h2 class="expense-title text-center text-xl">Expenses</h2>
+                        </th>
+                        <tr class="label-food">
+                            <th><label for="food">Food </label></th>
+                            <td><input type="text" id="Food" class="p-1"></td>
+                        </tr>
+                        <tr class="label-rent">
+                            <th><label for="rent">Rent </label></th>
+                            <td><input type="text" id="Rent" class="p-1"></td>
+                        </tr>
+                        <tr class="label-cloth">
+                            <th><label for="cloth">Cloths </label></th>
+                            <td><input type="text" id="Cloth" class="p-1"></td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">
+                                <button class="bg-sky-500 hover:bg-sky-400 text-white px-3 py-1 rounded-md" id="button-calculate">Calculate</button>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <h2 class="total-expense text-center font-bold">Total Expenses: <span id="get-total-expense">0</span></h2>
+                                <h2 class="total-balance text-center font-bold">Balance: <span id="get-total-savings">0</span></h2>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="flex justify-center items-center gap-2">
+                        <h3>Save: </h3>
+                        <input type="text" id="Savings" class="p-1 w-32">
+                        <h3>%</h3>
+                        <button class="bg-sky-500 hover:bg-sky-400 text-white px-3 py-1 rounded-md" id="button-saving">Save</button>
+                    </div>
+                    <h2 id="saving-amount" class="text-center mt-5 font-bold">Saving Amount: <span>0</span> </h2>
+                    <h2 id="remain-balance" class="text-center font-bold">Remaining Balance: <span>0</span> </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
