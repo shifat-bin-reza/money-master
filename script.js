@@ -5,6 +5,7 @@ function setValue(getId) {
     if (getInputIdString >= '0' && getInputIdString <= '9') {
         getInputId.style.borderColor = "grey";
         const getInputIdNumber = parseFloat(getInputIdString);
+        getInputId.value = "";
         return getInputIdNumber;
     } else {
         getInputId.style.borderColor = "red";
@@ -51,15 +52,19 @@ document.getElementById('button-saving').addEventListener('click', function () {
     const savingAmount = document.getElementById('saving-amount');
     const remainBalance = document.getElementById('remain-balance');
 
-    if (getSavings == -1) {
-        alert('Please Enter Your Saving Amount In Number');
+    if (getSavings == -1 || getSavings > 100) {
+        alert('Please Enter Valid Saving Amount In Number');
         savingAmount.innerText = 0;
         remainBalance.innerText = 0;
     } else {
-        const totalSavings = (totalBalance * getSavings) / 100;
-        const totalRemain = totalBalance - totalSavings;
+        if (totalBalance == 0) {
+            alert("Insufficient Balance!!");
+        } else {
+            const totalSavings = (totalBalance * getSavings) / 100;
+            const totalRemain = totalBalance - totalSavings;
 
-        savingAmount.innerText = totalSavings;
-        remainBalance.innerText = totalRemain;
+            savingAmount.innerText = totalSavings;
+            remainBalance.innerText = totalRemain;
+        }
     }
 })
