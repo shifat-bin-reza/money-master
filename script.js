@@ -31,7 +31,6 @@ document.getElementById('button-calculate').addEventListener('click', function (
         const totalExpense = getFood + getCloth + getRent;
         totalExpenseElement.innerText = totalExpense;
 
-
         const totalBalance = getIncome - totalExpense;
         if (totalBalance <= 0) {
             alert("You have 0 balance. Save some money you dog!!");
