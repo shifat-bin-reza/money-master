@@ -1,15 +1,15 @@
 function setValue(getId) {
     const getInputId = document.getElementById(getId);
     const getInputIdString = getInputId.value;
-    if ((getInputIdString >= 'A' && getInputIdString <= 'Z') || (getInputIdString >= 'a' && getInputIdString <= 'z') || getInputIdString == "") {
+
+    if (getInputIdString >= '0' && getInputIdString <= '9') {
+        const getInputIdNumber = parseFloat(getInputIdString);
         getInputId.value = "";
-        return 0;
+        return getInputIdNumber;
+    } else {
+        getInputId.value = "";
+        return -1;
     }
-    const getInputIdNumber = parseFloat(getInputIdString);
-
-    getInputId.value = "";
-
-    return getInputIdNumber;
 }
 
 document.getElementById('button-calculate').addEventListener('click', function () {
@@ -18,11 +18,10 @@ document.getElementById('button-calculate').addEventListener('click', function (
     const getRent = setValue('Rent');
     const getCloth = setValue('Cloth');
 
-
     const totalExpenseElement = document.getElementById('get-total-expense');
     const totalBalanceElement = document.getElementById('get-total-savings');
 
-    if (getIncome == 0 || getFood == 0 || getRent == 0 || getCloth == 0 || getSavings == 0) {
+    if (getIncome == -1 || getFood == -1 || getRent == -1 || getCloth == -1) {
         alert('Please Enter Your Amount In Number');
         totalExpenseElement.innerText = 0;
         totalBalanceElement.innerText = 0;
@@ -41,24 +40,25 @@ document.getElementById('button-calculate').addEventListener('click', function (
     }
 })
 
-// document.getElementById('button-saving').addEventListener('click', function () {
-//     const getSavings = setValue('Savings');
+document.getElementById('button-saving').addEventListener('click', function () {
+    const getSavings = setValue('Savings');
 
-//     const totalBalanceElement = document.getElementById('get-total-savings');
-//     const totalBalanceString = totalBalanceElement.innerText;
-//     const totalBalance = parseFloat(totalBalanceString);
+    const totalBalanceElement = document.getElementById('get-total-savings');
+    const totalBalanceString = totalBalanceElement.innerText;
+    const totalBalance = parseFloat(totalBalanceString);
 
-//     const savingAmount = document.getElementById('saving-amount');
-//     const remainBalance = document.getElementById('remain-balance');
+    const savingAmount = document.getElementById('saving-amount');
+    const remainBalance = document.getElementById('remain-balance');
 
-//     if (getSavings == 0) {
-//         alert('Please Enter Your Saving Amount In Number');
-//         savingAmount.innerText = 0;
-//         remainBalance.innerText = 0;
-//     } else {
-//         const totalSavings = totalBalance - (getSavings * 100);
-//         const totalRemain = totalBalance - totalSavings;
+    if (getSavings == -1) {
+        alert('Please Enter Your Saving Amount In Number');
+        savingAmount.innerText = 0;
+        remainBalance.innerText = 0;
+    } else {
+        const totalSavings = (totalBalance * getSavings) / 100;
+        const totalRemain = totalBalance - totalSavings;
 
-//     }
-
-// })
+        savingAmount.innerText = totalSavings;
+        remainBalance.innerText = totalRemain;
+    }
+})

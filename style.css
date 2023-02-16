@@ -12,7 +12,7 @@ input {
 }
 
 input:focus {
-    
+
     outline: none;
 }
 
@@ -47,6 +47,8 @@ input:focus {
     gap: 10px;
 }
 
-table, th, td {
+table,
+th,
+td {
     padding: 15px;
 }
